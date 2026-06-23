@@ -63,6 +63,13 @@ const Projects = () => {
       tech: ['React', 'TypeScript', 'GraphQL', 'AWS', 'Cognito', 'S3'],
       highlight: 'Real-time sync via AppSync',
     },
+    {
+      title: 'TCP/IP Network Protocol Analyzer',
+      description:
+        'Full-stack packet capture tool decoding TCP, UDP, IP, and ICMP headers via raw sockets with real-time traffic visualization.',
+      tech: ['Python', 'FastAPI', 'React', 'PostgreSQL', 'Docker', 'Linux'],
+      highlight: 'Real-time protocol statistics',
+    },
   ];
 
   return (
@@ -78,10 +85,11 @@ const Projects = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+          <div className="hud-label mb-3">// 04 · builds</div>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{ fontFamily: 'var(--font-display)' }}>
             <span className="text-gradient">Projects</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-accent to-teal-400 mx-auto rounded-full"></div>
+          <div className="section-rule"></div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -94,7 +102,10 @@ const Projects = () => {
               className="bg-dark-card p-6 rounded-xl border border-gray-800 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 flex flex-col h-full group"
             >
               <div className="mb-4">
-                <h3 className="text-xl font-semibold text-white group-hover:text-accent transition-colors duration-200">
+                <h3
+                  className="text-xl font-semibold text-white group-hover:text-accent transition-colors duration-200"
+                  style={{ fontFamily: 'var(--font-display)', letterSpacing: '-0.01em' }}
+                >
                   {project.title}
                 </h3>
               </div>
@@ -105,20 +116,13 @@ const Projects = () => {
 
               {project.highlight && (
                 <div className="mb-4">
-                  <span className="inline-block px-3 py-1 bg-accent/10 text-accent text-xs font-medium rounded-full border border-accent/30">
-                    {project.highlight}
-                  </span>
+                  <span className="highlight-pill">{project.highlight}</span>
                 </div>
               )}
 
               <div className="flex flex-wrap gap-2 mt-auto">
                 {project.tech.map((tech) => (
-                  <span
-                    key={tech}
-                    className="text-xs text-gray-400 bg-dark-bg px-2 py-1 rounded border border-gray-700"
-                  >
-                    {tech}
-                  </span>
+                  <span key={tech} className="chip-mini">{tech}</span>
                 ))}
               </div>
             </motion.div>
